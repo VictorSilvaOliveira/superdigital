@@ -38,6 +38,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"VictorSilvaOliveira_superdigital" /o:"victorsilvaoliveira" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build .
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"VictorSilvaOliveira_superdigital" /o:"victorsilvaoliveira" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=".\**\*.Test\TestResults\*\coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths=".\**\*.Test\TestResults\*\*.trx"
+          dotnet test --settings coverlet.runsettings --logger trx
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

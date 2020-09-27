@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Serialization;
+using Microsoft.OpenApi.Models;
 using Superdigital.DataBase;
 using Superdigital.FakeDatabases;
 using Superdigital.Handlers;
 using Superdigital.Handlers.Account;
-using Swashbuckle.AspNetCore.Swagger;
+using System.Text.Json;
 
 namespace Superdigital.Api
 {
@@ -32,22 +25,17 @@ namespace Superdigital.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddJsonOptions(opt =>
-                {
-                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                })
-
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "Projeto para teste na SuperDigital",
                     Description = "Projeto para teste na SuperDigital",
-                    TermsOfService = "None",
-                    Contact = new Contact() { Name = "Victor Silva de Oliveira", Email = "victor.s.o@outlook.com.com", Url = "github.com" }
+                    Contact = new OpenApiContact() { Name = "Victor Silva de Oliveira", Email = "victor.s.o@outlook.com.com", Url = new System.Uri("github.com") }
                 });
             });
 

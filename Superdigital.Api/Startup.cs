@@ -35,7 +35,7 @@ namespace Superdigital.Api
                     Version = "v1",
                     Title = "Projeto para teste na SuperDigital",
                     Description = "Projeto para teste na SuperDigital",
-                    Contact = new OpenApiContact() { Name = "Victor Silva de Oliveira", Email = "victor.s.o@outlook.com.com", Url = new System.Uri("github.com") }
+                    Contact = new OpenApiContact() { Name = "Victor Silva de Oliveira", Email = "victor.s.o@outlook.com.com", Url = new System.Uri("https://github.com/VictorSilvaOliveira/superdigital") }
                 });
             });
 
@@ -60,7 +60,6 @@ namespace Superdigital.Api
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

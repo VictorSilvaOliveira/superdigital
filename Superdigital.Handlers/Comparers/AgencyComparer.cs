@@ -10,7 +10,7 @@ namespace Superdigital.Handlers.Comparers
             return x.Number == y.Number && x.Validador == y.Validador;
         }
 
-        public int GetHashCode(Agency y)
+        public int GetHashCode(Agency obj)
         {
             return y.GetHashCode();
         }

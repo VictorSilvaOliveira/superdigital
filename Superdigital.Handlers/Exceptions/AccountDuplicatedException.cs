@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Superdigital.Handlers.Exceptions
 {
     [Serializable]
-    internal class AccountDuplicatedException : Exception
+    public class AccountDuplicatedException : Exception
     {
         public AccountDuplicatedException()
         {

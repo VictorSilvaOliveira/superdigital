@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Superdigital.Models;
 
 namespace Superdigital.Handlers.Comparables
 {
     public class BankComparer : IEqualityComparer<Bank>
     {
-        public bool Equals(Bank me, Bank other)
+        public bool Equals(Bank x, Bank y)
         {
-            return me.Id == other.Id;
+            return x.Id == y.Id;
         }
 
-        public int GetHashCode(Bank bank)
+        public int GetHashCode(Bank obj)
         {
-            return bank.GetHashCode();
+            return obj.GetHashCode();
         }
     }
 }

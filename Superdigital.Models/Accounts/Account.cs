@@ -1,10 +1,9 @@
 ﻿using Superdigital.Validators;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Superdigital.Models
 {
-    public class Account
+    public struct Account
     {
         [Required]
         public Bank Bank { get; set; }

@@ -1,16 +1,15 @@
 ﻿using System;
-using Superdigital;
 using Superdigital.Handlers.Exceptions;
 
 namespace Superdigital.Handlers.Account
 {
     public class AccountHandler : IAccountHandler
     {
-        private IAccountService _accountService;
+        private readonly IAccountService _accountService;
 
         public AccountHandler(IAccountService accountService)
         {
-            this._accountService = accountService;
+            _accountService = accountService;
         }
 
         public Guid BlockAmmount(Models.Account account, Models.Money ammount)

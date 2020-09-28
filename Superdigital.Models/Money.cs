@@ -2,7 +2,7 @@
 
 namespace Superdigital.Models
 {
-    public class Money
+    public struct Money
     {
         [Required]
         public double Total { get; set; }
@@ -12,7 +12,7 @@ namespace Superdigital.Models
 
         public static Money operator +(Money me, Money other)
         {
-            Money sum = null;
+            Money sum = default(Money);
             if (me.Currency == other.Currency)
             {
                 sum = new Money();
@@ -25,7 +25,7 @@ namespace Superdigital.Models
 
         public static Money operator -(Money me, Money other)
         {
-            Money diff = null;
+            Money diff = default(Money);
             if (me.Currency == other.Currency)
             {
                 diff = new Money();

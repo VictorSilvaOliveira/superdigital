@@ -1,12 +1,8 @@
-﻿using Superdigital.Validators;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Superdigital.Models
 {
-    public class Transfer
+    public struct Transfer
     {
         [Required]
         public Account Origin { get; set; }

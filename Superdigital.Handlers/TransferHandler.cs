@@ -1,6 +1,6 @@
-﻿using System;
-using Superdigital.Handlers.Account;
+﻿using Superdigital.Handlers.Account;
 using Superdigital.Models;
+using System;
 
 namespace Superdigital.Handlers
 {
@@ -21,10 +21,10 @@ namespace Superdigital.Handlers
                 _accountHandler.SendMoney(transaction.Destiny, transaction.Ammount, transactionId);
                 _accountHandler.ConfirmTransaction(transactionId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _accountHandler.RevertTransaction(transactionId);
-                throw ex;
+                throw;
             }
 
             return transactionId;

@@ -5,9 +5,9 @@ namespace Superdigital.Handlers.Account
 {
     public interface IAccountHandler
     {
-        Guid BlockAmmount(Models.Account origin, Money ammount);
+        Guid BlockAmmount(Models.Account account, Money ammount);
 
-        void SendMoney(Models.Account destiny, Money ammount, Guid id);
+        void SendMoney(Models.Account account, Money ammount, Guid id);
 
         void ConfirmTransaction(Guid transactionId);
 

@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Superdigital.Models;
-using Superdigital.DataBase;
-using System.Linq;
+﻿using Superdigital.DataBase;
 using Superdigital.Handlers.Exceptions;
+using Superdigital.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Superdigital.Handlers.Account
 {
     public class AccountService : IAccountService
     {
-        private readonly IDataBase<Models.AccountDetail> _accounts;
+        private readonly IDataBase<AccountDetail> _accounts;
         private readonly IDataBase<Operation> _operations;
 
-        public AccountService(IDataBase<Models.AccountDetail> accounts, IDataBase<Operation> operations)
+        public AccountService(IDataBase<AccountDetail> accounts, IDataBase<Operation> operations)
         {
             _accounts = accounts;
             _operations = operations;
@@ -22,7 +21,7 @@ namespace Superdigital.Handlers.Account
         public Guid BlockAmmount(Guid accountId, Money ammount)
         {
             var account = _accounts.GetById(accountId);
-            if (account == null)
+            if (account.Equals(default(AccountDetail)))
             {
                 throw new AccountNotFoundException();
             }

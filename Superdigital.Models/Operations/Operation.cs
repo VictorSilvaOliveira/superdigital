@@ -3,7 +3,7 @@ using System;
 
 namespace Superdigital.Models
 {
-    public class Operation : IRegister
+    public struct Operation : IRegister
     {
         public object Id { get; set; }
         public Guid TransactionId { get; set; }

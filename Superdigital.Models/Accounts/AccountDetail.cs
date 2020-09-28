@@ -1,13 +1,9 @@
 ﻿using Superdigital.DataBase;
-using Superdigital.Validators;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Superdigital.Models
 {
-    public class AccountDetail : IRegister
+    public struct AccountDetail : IRegister
     {
         [Required]
         public Account Account { get; set; }

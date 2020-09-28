@@ -2,7 +2,7 @@
 
 namespace Superdigital.Models
 {
-    public class Bank
+    public struct Bank
     {
         [Required]
         public string Id { get; set; }

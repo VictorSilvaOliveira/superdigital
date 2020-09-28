@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using Superdigital.Models;
+﻿using System.Collections.Generic;
 
 namespace Superdigital.Handlers.Comparers
 {
     public class AccountComparer : IEqualityComparer<Models.Account>
     {
-        public bool Equals(Models.Account me, Models.Account other)
+        public bool Equals(Models.Account x, Models.Account y)
         {
-            return me.Bank.IsSame(other.Bank) &&
-                   me.AccountNumber.IsSame(other.AccountNumber) &&
-                   me.Agency.IsSame(other.Agency);
+            return x.Bank.IsSame(y.Bank) &&
+                   x.AccountNumber.IsSame(y.AccountNumber) &&
+                   x.Agency.IsSame(y.Agency);
         }
 
-        public int GetHashCode(Models.Account account)
+        public int GetHashCode(Models.Account obj)
         {
-            return account.GetHashCode();
+            return obj.GetHashCode();
         }
     }
 }

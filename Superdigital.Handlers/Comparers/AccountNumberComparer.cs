@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Superdigital.Models;
 
 namespace Superdigital.Handlers.Comparers
 {
     public class AccountNumberComparer : IEqualityComparer<AccountNumber>
     {
-        public bool Equals(AccountNumber me, AccountNumber other)
+        public bool Equals(AccountNumber x, AccountNumber y)
         {
-            return me.Number == other.Number && me.Validador == other.Validador;
+            return x.Number == y.Number && x.Validador == y.Validador;
         }
 
-        public int GetHashCode(AccountNumber accountNumber)
+        public int GetHashCode(AccountNumber obj)
         {
-            return accountNumber.GetHashCode();
+            return obj.GetHashCode();
         }
     }
 }

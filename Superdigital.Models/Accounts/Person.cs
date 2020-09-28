@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Superdigital.Models
 {
-    public class Person
+    public struct Person
     {
         [DigitValidator]
         public PersonalId Id { get; set; }

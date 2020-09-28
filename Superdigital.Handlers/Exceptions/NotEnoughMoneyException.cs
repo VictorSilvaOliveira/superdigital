@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Superdigital.Handlers.Exceptions
 {
-    public class NotEnoughMoneyException : Exception
+    public class NotEnoughMoneyException : Exception, ISerializable
     {
         const string MESSAGE = "The account dont have money enough to this operation";
 

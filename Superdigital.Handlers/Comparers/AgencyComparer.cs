@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections;
+﻿using Superdigital.Models;
 using System.Collections.Generic;
-using System.Text;
-using Superdigital.Models;
 
 namespace Superdigital.Handlers.Comparers
 {
-    public class AgencyComparer : IEqualityComparer<Models.Agency>
+    public class AgencyComparer : IEqualityComparer<Agency>
     {
-        public bool Equals(Agency me, Agency other)
+        public bool Equals(Agency x, Agency y)
         {
-            return me.Number == other.Number && me.Validador == other.Validador;
+            return x.Number == y.Number && x.Validador == y.Validador;
         }
 
-        public int GetHashCode(Agency agency)
+        public int GetHashCode(Agency y)
         {
-            return agency.GetHashCode();
+            return y.GetHashCode();
         }
     }
 }

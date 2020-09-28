@@ -7,7 +7,7 @@ namespace Superdigital.Handlers.Account
     {
         Guid BlockAmmount(Models.Account account, Money ammount);
 
-        void SendMoney(Models.Account account, Money ammount, Guid id);
+        void SendMoney(Models.Account account, Money ammount, Guid transactionId);
 
         void ConfirmTransaction(Guid transactionId);
 
